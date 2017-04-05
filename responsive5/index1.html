@@ -23,9 +23,7 @@
 	<link rel="stylesheet" href="./css/style.css" />
 	
 	  <meta charset="UTF-8">
-  <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
-  <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
-  <title>CodePen - 1. Line Chart</title>
+  <title>Chart</title>
 <style>
       .container {
   width: 80%;
@@ -101,34 +99,30 @@
 	<div class="container column-center">
 		<div class="row vspace30">
 			<div class="col-lg-4">
-				<div class="container">
-				  <h3>Chart</h3>
+				<h3>Chart</h3>
 				  <div>
 					 <canvas id="myChart1"></canvas>
 				  </div>
-				</div>
+				
 				<h3>1 Columns</h3>
 				<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
 				<p><a class="btn btn-default" href="#">View details &raquo;</a></p>
 			</div>
 			<div class="col-lg-4">
-				<div class="container">
 				  <h3>Chart</h3>
 				  <div>
 					 <canvas id="myChart2"></canvas>
 				  </div>
-				</div>
+				
 				<h3>2 Columns</h3>
 				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
 				<p><a class="btn btn-default" href="#">View details &raquo;</a></p>
 			</div>
 			<div class="col-lg-4">
-				<div class="container">
 				  <h3>Chart</h3>
 				  <div>
 					 <canvas id="myChart4"></canvas>
 				  </div>
-				</div>
 				<h3>3 Columns</h3>
 				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
 				<p><a class="btn btn-default" href="#">View details &raquo;</a></p>
@@ -192,7 +186,7 @@ window.onload = function(){
 				var ctx = document.getElementById('myChart4').getContext('2d');
 					
 				var myBarChart = new Chart(ctx, {
-					type: 'horizontalBar',
+					type: 'bar',
 					data: data
 				});
 					
