@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<title>Responsive Web Mobile</title>
+
+	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<!-- IE compatibility mode -->
+  	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1" />
+
+	<!-- Included Bootstrap CSS File -->
+	<link rel="stylesheet" href="./js/bootstrap/css/bootstrap.min.css" />
+
+	<!-- Included Bootstrap Extension CSS File to modify some behaviours -->
+	<link rel="stylesheet" href="./css/bootstrap-extensions.css" />
+	
+	<!-- Includes FontAwesome -->
+	<link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css" />
+
+	<!-- Css -->	
+	<link rel="stylesheet" href="./css/style.css" />
+	
+	  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+  <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+  <title>CodePen - 1. Line Chart</title>
+<style>
+      .container {
+  width: 80%;
+  margin: 15px auto;
+}
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+</head>
+<body>
+<header>
+	<!-- Navbar -->
+	<div class="navbar">
+		<div class="container">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">RWM</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#">link 1</a></li>
+					<li><a href="#">link 2</a></li>
+					<li><a href="#">link 3</a></li>
+					<li><a href="#">link 4</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Link 5 <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Link 5.1</a></li>
+							<li><a href="#">Link 5.2</a></li>
+							<li><a href="#">Link 5.3</a></li>
+							<li><a href="#">Link 5.4</a></li>
+							<li><a href="#">Link 5.5</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /Navbar -->
+
+	<!-- Carousel -->
+
+
+
+<!-- Three Columns Content -->
+<div class="row-container">
+	<div class="container column-center">
+		<div class="row vspace30">
+			<div class="col-lg-12">
+				<h1 class="line"><span>3 Columns Row Example</span></h1>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="container" style="width: 100%;" >
+	<canvas id="canvas" style="border:1px"></canvas>
+</div>
+
+<div class="row-container">
+	<div class="container column-center">
+		<div class="row vspace30">
+			<div class="col-lg-4">
+				<div class="container">
+				  <h3>Chart</h3>
+				  <div>
+					<canvas id="myChart"></canvas>
+				  </div>
+				</div>
+				<h3>3 Columns</h3>
+				<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+				<p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+			</div>
+			<div class="col-lg-4">
+				<a href="#" class="thumbnail">
+					
+				</a>
+				<h3>3 Columns</h3>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+				<p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+			</div>
+			<div class="col-lg-4">
+				<a href="#" class="thumbnail">
+					<img class="img-circle" data-src="holder.js/240x240" alt="" />
+				</a>
+				<h3>3 Columns</h3>
+				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+				<p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Three Columns Content -->
+
+
+<!-- 4 Columns Content -->
+<div class="row-container">
+	<div class="container column-center">
+		<div class="row vspace30">
+			<div class="col-lg-12">
+				<h1 class="line"><span>An other 4 Columns Row Example</span></h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row-container">
+	<div class="container">
+		<div class="row vspace30">
+			<div class="col-lg-3">
+				<div class="thumbnail">
+					<img class="img-square img-responsive" data-src="holder.js/300x200" alt="" />
+					<div class="caption">
+						<h4>Thumbnail label</h4>
+						<p>Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+						<p><a href="#" class="btn btn-primary">Buy</a> <a href="#" class="btn btn-default">Zoom</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="thumbnail">
+					<img class="img-square img-responsive" data-src="holder.js/300x200" alt="" />
+					<div class="caption">
+						<h4>Thumbnail label</h4>
+						<p>Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+						<p><a href="#" class="btn btn-primary">Buy</a> <a href="#" class="btn btn-default">Zoom</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="thumbnail">
+					<img class="img-square img-responsive" data-src="holder.js/300x200" alt="" />
+					<div class="caption">
+						<h4>Thumbnail label</h4>
+						<p>Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+						<p><a href="#" class="btn btn-primary">Buy</a> <a href="#" class="btn btn-default">Zoom</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="thumbnail">
+					<img class="img-square img-responsive" data-src="holder.js/300x200" alt="" />
+					<div class="caption">
+						<h4>Thumbnail label</h4>
+						<p>Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+						<p><a href="#" class="btn btn-primary">Buy</a> <a href="#" class="btn btn-default">Zoom</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /4 Columns Content -->
+
+<!-- 6 Columns Content -->
+<div class="row-container">
+	<div class="container column-center">
+		<div class="row vspace30">
+			<div class="col-lg-12">
+				<h1 class="line"><span>6 Columns Row Example</span></h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row-container">
+	<div class="container">
+		<div class="row vspace30">
+			<div class="col-lg-2">
+				<a href="#" class="thumbnail">
+					<img class="img-square img-responsive" data-src="holder.js/300x80" alt="" />
+				</a>
+			</div>
+			<div class="col-lg-2">
+				<a href="#" class="thumbnail">
+					<img class="img-square img-responsive" data-src="holder.js/300x80" alt="" />
+				</a>
+			</div>
+			<div class="col-lg-2">
+				<a href="#" class="thumbnail">
+					<img class="img-square img-responsive" data-src="holder.js/300x80" alt="" />
+				</a>
+			</div>
+			<div class="col-lg-2">
+				<a href="#" class="thumbnail">
+					<img class="img-square img-responsive" data-src="holder.js/300x80" alt="" />
+				</a>
+			</div>
+			<div class="col-lg-2">
+				<a href="#" class="thumbnail">
+					<img class="img-square img-responsive" data-src="holder.js/300x80" alt="" />
+				</a>
+			</div>
+			<div class="col-lg-2">
+				<a href="#" class="thumbnail">
+					<img class="img-square img-responsive" data-src="holder.js/300x80" alt="" />
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /6 Columns Content -->
+
+   <script src="js/Chart.bundle.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['2010', '2011', '2012', '1013', '2014', '2015', '2016'],
+    datasets: [{
+      label: 'c',
+      data: [12, 19, 3, 17, 7, 8, 11],
+      backgroundColor: "rgba(153,255,51,0.6)"
+    }, {
+      label: 'r',
+      data: [2, 3, 5, 5, 2, 3, 10],
+      backgroundColor: "rgba(255,153,0,0.6)"
+    }]
+  }
+});
+  //# sourceURL=pen.js
+  </script>
+  <script>
+        var DEFAULT_DATASET_SIZE = 7;
+
+        var addedCount = 0;
+        var color = Chart.helpers.color;
+        var bubbleChartData = {
+            animation: {
+                duration: 10000
+            },
+            datasets: [{
+                label: "A",
+                backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+                borderColor: window.chartColors.red,
+                borderWidth: 1,
+                data: [{
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }]
+            }, {
+                label: "B",
+                backgroundColor: color(window.chartColors.orange).alpha(0.5).rgbString(),
+                borderColor: window.chartColors.orange,
+                borderWidth: 1,
+                data: [{
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }, {
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                }]
+            }]
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myChart = new Chart(ctx, {
+                type: 'bubble',
+                data: bubbleChartData,
+                options: {
+                    responsive: true,
+                    title:{
+                        display:false,
+                        text:'Chart.js Bubble Chart'
+                    },
+                    tooltips: {
+                        mode: 'point'
+                    }
+                }
+            });
+        };
+
+        document.getElementById('randomizeData').addEventListener('click', function() {
+            bubbleChartData.datasets.forEach(function(dataset) {
+                dataset.data = dataset.data.map(function() {
+                    return {
+                        x: randomScalingFactor(),
+                        y: randomScalingFactor(),
+                        r: Math.abs(randomScalingFactor()) / 5,
+                    };
+                });
+            });
+            window.myChart.update();
+        });
+
+        var colorNames = Object.keys(window.chartColors);
+        document.getElementById('addDataset').addEventListener('click', function() {
+            ++addedCount;
+            var colorName = colorNames[bubbleChartData.datasets.length % colorNames.length];;
+            var dsColor = window.chartColors[colorName];
+            var newDataset = {
+                label: "My added dataset " + addedCount,
+                backgroundColor: color(dsColor).alpha(0.5).rgbString(),
+                borderColor: dsColor,
+                borderWidth: 1,
+                data: []
+            };
+
+            for (var index = 0; index < DEFAULT_DATASET_SIZE; ++index) {
+                newDataset.data.push({
+                    x: randomScalingFactor(),
+                    y: randomScalingFactor(),
+                    r: Math.abs(randomScalingFactor()) / 5,
+                });
+            }
+
+            bubbleChartData.datasets.push(newDataset);
+            window.myChart.update();
+        });
+
+        document.getElementById('addData').addEventListener('click', function() {
+            if (bubbleChartData.datasets.length > 0) {
+                for (var index = 0; index < bubbleChartData.datasets.length; ++index) {
+                    bubbleChartData.datasets[index].data.push({
+                        x: randomScalingFactor(),
+                        y: randomScalingFactor(),
+                        r: Math.abs(randomScalingFactor()) / 5,
+                    });
+                }
+
+                window.myChart.update();
+            }
+        });
+
+        document.getElementById('removeDataset').addEventListener('click', function() {
+            bubbleChartData.datasets.splice(0, 1);
+            window.myChart.update();
+        });
+
+        document.getElementById('removeData').addEventListener('click', function() {
+            bubbleChartData.datasets.forEach(function(dataset, datasetIndex) {
+                dataset.data.pop();
+            });
+
+            window.myChart.update();
+        });
+    </script>
+
+<footer>
+	<div class="container">
+		<div class="row vspace30">
+			<div class="col-lg-4">
+
+			</div>
+			<div class="col-lg-4">
+				
+			</div>
+			<div class="col-lg-4">
+			
+			</div>
+		</div>
+
+		<div class="row vspace30">
+			<div class="col-lg-12">
+				&copy;&nbsp;copyright 2013
+			</div>
+		</div>
+	</div>
+</footer>
+	
+	<!-- jQuery include (http://jquery.com/) -->
+	<script src="./js/jquery-1.10.2.min.js"></script>
+	<!-- Include all compiled Bootstrap plugins (http://getbootstrap.com/) -->
+	<script src="./js/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+	<script src="./js/respond.min.js"></script>
+	<!-- Holder renders image placeholders entirely on the client side (http://imsky.github.io/holder/) -->
+	<script src="./js/holder.js"></script>
+	<!-- Your javascript file -->
+	<script src="./js/script.js"></script>
+</body>
+</html>
