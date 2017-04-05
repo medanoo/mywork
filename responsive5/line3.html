@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+   <title>CodePen - 1. Line Chart</title>
+  
+  
+  
+  
+      <style>
+      .container {
+  width: 100%;
+  margin: 15px auto;
+}
+    </style>
+
+
+</head>
+
+<body translate="no" >
+
+  <div class="container">
+  <h2>Chart.js — Line Chart Demo</h2>
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+</div>
+<script src="js/Chart.bundle.js"></script>
+<script src="js/utils.js"></script>
+    <script>
+    var data = {
+				datasets: [{
+					data: [
+						11,
+						16,
+						7,
+						3,
+						14
+					],
+					backgroundColor: [
+						"#FF6384",
+						"#4BC0C0",
+						"#FFCE56",
+						"#E7E9ED",
+						"#36A2EB"
+					],
+					label: 'My dataset' // for legend
+				}],
+				labels: [
+					"Red",
+					"Green",
+					"Yellow",
+					"Grey",
+					"Blue"
+				]
+			};
+  
+	
+
+var ctx = document.getElementById('myChart').getContext('2d');
+					
+var myRadarChart = new Chart(ctx, {
+    type: 'radar',
+    data: data
+});
+	
+
+  //# sourceURL=pen.js
+  </script>
+
+  
+  
+
+</body>
+</html>
+ 

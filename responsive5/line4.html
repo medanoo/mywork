@@ -1,0 +1,108 @@
+
+
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+   <title>CodePen - 1. Line Chart</title>
+  
+  
+  
+  
+      <style>
+      .container {
+  width: 100%;
+  margin: 15px auto;
+}
+    </style>
+
+
+</head>
+
+<body translate="no" >
+
+  <div class="container">
+  <h2>Chart.js — Line Chart Demo</h2>
+  <div>
+    <canvas id="myChart1"></canvas>
+  </div>
+  <div>
+    <canvas id="myChart2"></canvas>
+  </div>
+   <div>
+    <canvas id="myChart3"></canvas>
+  </div>
+     <div>
+    <canvas id="myChart4"></canvas>
+  </div>
+</div>
+<script src="js/Chart.bundle.js"></script>
+<script src="js/utils.js"></script>
+    <script>
+    var dataRadar = {
+				datasets: [{
+					data: [	11,	16,	7, 3, 14 ],
+					backgroundColor: ["#FF6384","#4BC0C0","#FFCE56","#E7E9ED","#36A2EB"	],
+					label: 'My dataset' // for legend
+				}],
+				labels: [ "Red", "Green", "Yellow",	"Grey",	"Blue" ]
+			};
+ 
+	var data = {
+    labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+    datasets: [{
+      label: 'committed',
+      data: [12, 19, 3, 17, 6, 3, 7],
+      backgroundColor: "rgba(153,255,51,0.6)"
+    }, {
+      label: 'realised',
+      data: [2, 29, 5, 5, 2, 3, 10],
+      backgroundColor: "rgba(255,153,0,0.6)"
+    }]
+  };
+  
+	
+
+window.onload = function(){
+					var ctx = document.getElementById('myChart1').getContext('2d');
+					var myChart = new Chart(ctx, {
+					  type: 'line',
+					  data: data
+					});
+					
+					var ctx = document.getElementById('myChart2').getContext('2d');
+					
+					var myRadarChart = new Chart(ctx, {
+						type: 'radar',
+						data: dataRadar
+					});
+					
+					var ctx = document.getElementById('myChart3').getContext('2d');
+					
+					
+					var myBarChart = new Chart(ctx, {
+					type: 'bar',
+					data: data
+				});
+				var ctx = document.getElementById('myChart4').getContext('2d');
+					
+				var myBarChart = new Chart(ctx, {
+					type: 'horizontalBar',
+					data: data
+				});
+					
+                        
+                    };
+						
+	
+	
+
+  </script>
+
+  
+  
+
+</body>
+</html>
+ 
