@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+	<title>DataTables example - Ajax data source (objects)</title>
+	<link rel="stylesheet" type="text/css" href="../../media/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="../resources/syntax/shCore.css">
+	<link rel="stylesheet" type="text/css" href="../resources/demo.css">
+	<style type="text/css" class="init">
+	
+	</style>
+	<script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.12.3.min.js">
+	</script>
+	<script type="text/javascript" language="javascript" src="../../media/js/jquery.dataTables.js">
+	</script>
+	<script type="text/javascript" language="javascript" src="../resources/syntax/shCore.js">
+	</script>
+	<script type="text/javascript" language="javascript" src="../resources/demo.js">
+	</script>
+	<script type="text/javascript" language="javascript" class="init">
+	
+$(document).ready(function() {
+	$('#example').DataTable( {
+		"ajax": "data/energy.txt",
+		"columns": [
+			{ "data": "year" },
+			{ "data": "energy_consumption_per_dollar_gdp" }
+		]
+	} );
+} );
+
+	</script>
+</head>
+<body class="dt-example">
+	<div class="container">
+		<section>
+			
+			<table id="example" class="display" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>Year</th>
+						<th>Energy Consumption Per Dollar GDP</th>
+					</tr>
+				</thead>
+			</table>
+		</section>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,61 @@
+{
+    "data":[
+	{
+        "year": "2000",
+        "energy_consumption_per_dollar_gdp": "11.3"
+    },
+    {
+        "year": "2001",
+        "energy_consumption_per_dollar_gdp": "15.4"
+    },
+    {
+        "year": "2002",
+        "energy_consumption_per_dollar_gdp": "12.2"
+    },
+    {
+        "year": "2003",
+        "energy_consumption_per_dollar_gdp": "17.1"
+    },
+    {
+        "year": "2004",
+        "energy_consumption_per_dollar_gdp": "17.1"
+    },
+    {
+        "year": "2005",
+        "energy_consumption_per_dollar_gdp": "22.3"
+    },
+    {
+        "year": "2006",
+        "energy_consumption_per_dollar_gdp": "25.6"
+    },
+    {
+        "year": "2007",
+        "energy_consumption_per_dollar_gdp": "11.3"
+    },
+    {
+        "year": "2008",
+        "energy_consumption_per_dollar_gdp": "15.4"
+    },
+    {
+        "year": "2009",
+        "energy_consumption_per_dollar_gdp": "12.2"
+    },
+    {
+        "year": "2010",
+        "energy_consumption_per_dollar_gdp": "17.1"
+    },
+    {
+        "year": "2011",
+        "energy_consumption_per_dollar_gdp": "17.1"
+    },
+    {
+        "year": "2012",
+        "energy_consumption_per_dollar_gdp": "22.3"
+    },
+    {
+        "year": "2013",
+        "energy_consumption_per_dollar_gdp": "25.6"
+    }
+
+]
+}

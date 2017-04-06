@@ -1,0 +1,104 @@
+{
+"data":[
+
+ {
+   "Year": "2006",
+   "Manufacturing": "5.50",
+   "Others": "0.00",
+   "Residential": "0.00",
+   "Government": "5.80",
+   "Committed Investment": "11.30",
+   "Commited Increment": ""
+ },
+ {
+   "Year": "2007",
+   "Manufacturing": "11.90",
+   "Others": "1.00",
+   "Residential": "7.10",
+   "Government": "5.80",
+   "Committed Investment": "25.80",
+   "Commited Increment": "128.32%"
+ },
+ {
+   "Year": "2008",
+   "Manufacturing": "21.70",
+   "Others": "5.05",
+   "Residential": "8.17",
+   "Government": "6.80",
+   "Committed Investment": "41.76",
+   "Commited Increment": "61.86%"
+ },
+ {
+   "Year": "2009",
+   "Manufacturing": "23.65",
+   "Others": "9.11",
+   "Residential": "16.52",
+   "Government": "6.28",
+   "Committed Investment": "55.56",
+   "Commited Increment": "33.04%"
+ },
+ {
+   "Year": "2010",
+   "Manufacturing": "26.92",
+   "Others": "14.45",
+   "Residential": "21.83",
+   "Government": "6.28",
+   "Committed Investment": "69.48",
+   "Commited Increment": "25.06%"
+ },
+ {
+   "Year": "2011",
+   "Manufacturing": "31.22",
+   "Others": "19.98",
+   "Residential": "27.30",
+   "Government": "6.28",
+   "Committed Investment": "84.78",
+   "Commited Increment": "22.02%"
+ },
+ {
+   "Year": "2012",
+   "Manufacturing": "35.07",
+   "Others": "28.79",
+   "Residential": "35.14",
+   "Government": "7.31",
+   "Committed Investment": "106.31",
+   "Commited Increment": "25.40%"
+ },
+ {
+   "Year": "2013",
+   "Manufacturing": "46.82",
+   "Others": "43.26",
+   "Residential": "32.97",
+   "Government": "8.31",
+   "Committed Investment": "131.36",
+   "Commited Increment": "23.57%"
+ },
+ {
+   "Year": "2014",
+   "Manufacturing": "50.09",
+   "Others": "61.14",
+   "Residential": "38.58",
+   "Government": "8.31",
+   "Committed Investment": "158.12",
+   "Commited Increment": "20.37%"
+ },
+ {
+   "Year": "2015",
+   "Manufacturing": "54.08",
+   "Others": "87.14",
+   "Residential": "40.06",
+   "Government": "9.00",
+   "Committed Investment": "190.28",
+   "Commited Increment": "20.34%"
+ },
+ {
+   "Year": "2016",
+   "Manufacturing": "57.38",
+   "Others": "110.79",
+   "Residential": "44.43",
+   "Government": "9.84",
+   "Committed Investment": "222.44",
+   "Commited Increment": "16.90%"
+ }
+]
+}
