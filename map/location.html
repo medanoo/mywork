@@ -1,0 +1,189 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBMNuJXkVWghwaeFds3zr7RMNwdyLjfs70&callback=initMap"></script>
+
+<script type="text/javascript">
+
+function start() {
+	var myOptions = {
+	  zoom: 11,
+	  center:  new google.maps.LatLng(1.47730,103.61452) ,
+	  mapTypeId: google.maps.MapTypeId.ROADMAP,
+	  mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
+	};
+	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	 
+	var ctaLayer = new google.maps.KmlLayer({
+    //url: 'https://drive.google.com/uc?export=download&id=0B2Yzb_E_umL3aTNUeFhndkdZWnM',
+	//url: 'http://icp.irda.com.my/cml/html/20km.kml',
+	url: 'https://medanoo.github.io/mywork/data/20km.kml',
+    map: map
+	});
+}
+
+
+function addruler( lng1,lat1,lng2,lat2) {
+
+/*
+1.47730,103.61452 
+1.47029,103.90297
+*/
+
+	var ruler1 = new google.maps.Marker({
+		position: new google.maps.LatLng(lng1,lat1),
+		map: map,
+		draggable: false
+	});
+
+	var ruler2 = new google.maps.Marker({
+		position: new google.maps.LatLng(lng2,lat2) ,
+		map: map,
+		draggable: true
+	});
+	
+	var ruler1label = new Label({ map: map });
+	var ruler2label = new Label({ map: map });
+	ruler1label.bindTo('position', ruler1, 'position');
+	ruler2label.bindTo('position', ruler2, 'position');
+
+	var rulerpoly = new google.maps.Polyline({
+		path: [ruler1.position, ruler2.position] ,
+		strokeColor: "#FFFF00",
+		strokeOpacity: .7,
+		strokeWeight: 7
+	});
+	rulerpoly.setMap(map);
+
+	//ruler1label.set('text',distance( ruler1.getPosition().lat(), ruler1.getPosition().lng(), ruler2.getPosition().lat(), ruler2.getPosition().lng()));
+	ruler2label.set('text',distance( ruler1.getPosition().lat(), ruler1.getPosition().lng(), ruler2.getPosition().lat(), ruler2.getPosition().lng()));
+
+
+	google.maps.event.addListener(ruler1, 'drag', function() {
+		rulerpoly.setPath([ruler1.getPosition(), ruler2.getPosition()]);
+		//ruler1label.set('text',distance( ruler1.getPosition().lat(), ruler1.getPosition().lng(), ruler2.getPosition().lat(), ruler2.getPosition().lng()));
+		ruler2label.set('text',distance( ruler1.getPosition().lat(), ruler1.getPosition().lng(), ruler2.getPosition().lat(), ruler2.getPosition().lng()));
+	});
+
+	google.maps.event.addListener(ruler2, 'drag', function() {
+		rulerpoly.setPath([ruler1.getPosition(), ruler2.getPosition()]);
+		//ruler1label.set('text',distance( ruler1.getPosition().lat(), ruler1.getPosition().lng(), ruler2.getPosition().lat(), ruler2.getPosition().lng()));
+		ruler2label.set('text',distance( ruler1.getPosition().lat(), ruler1.getPosition().lng(), ruler2.getPosition().lat(), ruler2.getPosition().lng()));
+	});
+
+}
+
+
+function distance(lat1,lon1,lat2,lon2) {
+	var R = 6371; // km (change this constant to get miles)
+	var dLat = (lat2-lat1) * Math.PI / 180;
+	var dLon = (lon2-lon1) * Math.PI / 180; 
+	var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+		Math.cos(lat1 * Math.PI / 180 ) * Math.cos(lat2 * Math.PI / 180 ) * 
+		Math.sin(dLon/2) * Math.sin(dLon/2); 
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+	var d = R * c;
+	if (d>1) return Math.round(d)+"km";
+	else if (d<=1) return Math.round(d*1000)+"m";
+	return d;
+}
+
+// Define the overlay, derived from google.maps.OverlayView
+function Label(opt_options) {
+	// Initialization
+	this.setValues(opt_options);
+
+	// Label specific
+	var span = this.span_ = document.createElement('span');
+	span.style.cssText = 'position: relative; left: 0%; top: -8px; ' +
+			  'white-space: nowrap; border: 0px; font-size:16px; font-family:arial; font-weight:bold;' +
+			  'padding: 2px; background-color: #ddd; '+
+				'opacity: .75; '+
+				'filter: alpha(opacity=75); '+
+				'-ms-filter: "alpha(opacity=75)"; '+
+				'-khtml-opacity: .75; '+
+				'-moz-opacity: .75;';
+
+	var div = this.div_ = document.createElement('div');
+	div.appendChild(span);
+	div.style.cssText = 'position: absolute; display: none';
+};
+Label.prototype = new google.maps.OverlayView;
+
+// Implement onAdd
+Label.prototype.onAdd = function() {
+	var pane = this.getPanes().overlayLayer;
+	pane.appendChild(this.div_);
+
+	
+	// Ensures the label is redrawn if the text or position is changed.
+	var me = this;
+	this.listeners_ = [
+		google.maps.event.addListener(this, 'position_changed',
+		function() { me.draw(); }),
+		google.maps.event.addListener(this, 'text_changed',
+		function() { me.draw(); })
+	];
+	
+};
+
+// Implement onRemove
+Label.prototype.onRemove = function() { this.div_.parentNode.removeChild(this.div_ );
+	// Label is removed from the map, stop updating its position/text.
+	for (var i = 0, I = this.listeners_.length; i < I; ++i) {
+		google.maps.event.removeListener(this.listeners_[i]);
+	}
+};
+
+// Implement draw
+Label.prototype.draw = function() {
+	var projection = this.getProjection();
+	var position = projection.fromLatLngToDivPixel(this.get('position'));
+
+	var div = this.div_;
+	div.style.left = position.x + 'px';
+	div.style.top = position.y + 'px';
+	div.style.display = 'block';
+
+	this.span_.innerHTML = this.get('text').toString();
+};
+</script>
+
+<script type="text/javascript">
+    <!--
+        function GetLocation() {
+            var geocoder = new google.maps.Geocoder();
+            var address = document.getElementById("txtAddress").value;
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var latitude = results[0].geometry.location.lat();
+                    var longitude = results[0].geometry.location.lng();
+                    //alert("Latitude: " + latitude + "\nLongitude: " + longitude);
+					addruler(1.47730,103.61452,latitude,longitude);
+                } else {
+                    alert("Request failed.")
+                }
+            });
+        };
+        //-->
+    </script>
+	
+<style>
+	html, body, #map_canvas { height: 100%; margin: 0px; padding: 0px; font-family: Georgia, Serif; font-size: 1.0em; }
+	textarea { font-family: Georgia, Serif;font-size: 1.0em; width: 300px; height:100px	 }
+	#right-bar { border-style: solid; border-width: 1px; position: fixed; top: 45px; right: 3px; margin-right: 1px;	margin-bottom: 10px; padding: 10px;	width: 320px; background-color: rgba(255, 255, 255, 1); }
+</style>
+
+</head>
+<body onload="start();">
+<div id="map_canvas"></div>
+<div id="right-bar">
+
+Address:
+<textarea id="txtAddress" rows="3" cols="25"></textarea>
+    <br />
+    <input type="button" onclick="GetLocation()" value="Get Location" />
+	<input type="button" onclick="location.reload();" value="Refresh" />
+</div>
+</body>
+</html>
